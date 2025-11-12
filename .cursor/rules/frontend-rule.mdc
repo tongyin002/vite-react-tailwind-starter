@@ -1,0 +1,40 @@
+---
+alwaysApply: true
+---
+
+# Frontend Development Rules
+
+## Styling
+
+- Always use Tailwind CSS for styling
+- Always use the `cn` utility function from `src/lib/utils.ts` when composing className values
+- Example:
+
+```tsx
+<div className={cn("text-2xl", "bg-amber-50", { border: shouldShowBorder })} />
+```
+
+## Function Implementation
+
+- When implementing a function or method, always read and consider any comments directly above it
+- Comments often contain critical specifications (input/output examples, edge cases, behavior)
+- Example:
+
+```typescript
+// 0 -> A, 25 -> Z ... 26 -> AA, 51 -> AZ, 52 -> BA
+export function convertColIdxToBase26Letters(colIdx: number) {
+  // Implementation should follow the comment specification above
+}
+```
+
+The comment defines the expected behavior - implement accordingly.
+
+## useEffect Rule
+
+- Try to avoid using `useEffect` unless it's necessary
+- Always think of better, more concise, less error-prone alternatives first before reaching for the `useEffect` hook
+- Remember that `useEffect` has pitfalls (dependency arrays, cleanup functions, race conditions, etc.)
+- Consider alternatives like:
+  - Derived state (calculate values directly from props/state)
+  - Event handlers (user interactions)
+  - State initializers (for one-time setup)
