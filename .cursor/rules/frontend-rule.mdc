@@ -21,8 +21,8 @@ alwaysApply: true
 - Example:
 
 ```typescript
-// 0 -> A, 25 -> Z ... 26 -> AA, 51 -> AZ, 52 -> BA
-export function convertColIdxToBase26Letters(colIdx: number) {
+// [0, 1, 2] -> 3, [0, 0, 0] -> 0, [] -> 0
+export function sum(...args: number[]) {
   // Implementation should follow the comment specification above
 }
 ```
